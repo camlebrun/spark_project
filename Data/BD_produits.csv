@@ -13,9 +13,9 @@ ID_produit;Nom_produit;Categorie;Stock_actuel
 12;Cepres;Alimentation;50
 13;Creme de rasage;Hygiene;60
 14;Sauce tomate;Alimentation;200
-15;Huile;Alimentation;150
+15;Huile;Alimentation;5
 16;Biscuits;Alimentation;175
 17;Serviettes hygieniques;Hygiene;120
 18;The;Alimentation;100
 19;Savon;Hygiene;75
-20;Ketchup;Alimentation;150
+20;Ketchup;Alimentation;1

@@ -89,3 +89,6 @@ nb_client_per_store.show()
 
 #4b. nombre de clients  par magasin et mois 
 nb_client_mensuel = df_finale.groupBy(["ID_magasin", month("Date").alias("month")] ).agg({"ID_client": "count"}).alias("nb_client_mensuel")
+#5 stock allerte
+produit.filter(produit.Stock_actuel <= 5).show()
+
