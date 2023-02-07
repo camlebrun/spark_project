@@ -80,3 +80,12 @@ df_client.show()
 df_finale = df_finale.withColumn("Date", to_date(df_finale["Date"], "dd-MM-yyyy"))
 CA_month = df_finale.groupBy(["ID_magasin", month("Date").alias("month")] ).agg({"Montant": "sum"}).alias("courses_menselle")
 #CA_month = df_finale.groupBy(["Adresse", month("Date").alias("month")] ).agg({"Montant": "sum"}).alias("courses_menselle")
+
+
+#4 nombre de clients  par magasin
+nb_client_per_store = df_finale.groupBy("ID_magasin").count().alias("nb_client")
+#nb_client_per_store = df_finale.groupBy("Adresse").count().alias("nb_client")
+nb_client_per_store.show()
+
+#4b. nombre de clients  par magasin et mois 
+nb_client_mensuel = df_finale.groupBy(["ID_magasin", month("Date").alias("month")] ).agg({"ID_client": "count"}).alias("nb_client_mensuel")
