@@ -1,0 +1,27 @@
+ID_client;Nom;Prenom;Adresse_client;Ville_client;Code_postal_client
+1;Dupont;Jean;12, rue de la Pompe;Paris;75116
+2;Martin;Marie;5, avenue des Gobelins;Paris;75013
+3;Petit;Francois;9, rue de la Pompe;Paris;75116
+4;Durand;Sophie;7, avenue de la Motte-Picquet;Paris;75007
+5;Legrand;David;15, rue de Belleville;Paris;75019
+6;Martin;Sophie;12 Rue des Cerisiers;Toulouse;31000
+7;Robert;Antoine;17 Place des Lilas;Bordeaux;33000
+8;Petit;Lucie;9 Avenue des Roses;Nice;6000
+9;Durand;Paul;3 All�e des Acacias;Rennes;35000
+10;Bertrand;Isabelle;29 Rue des Tulipes;Strasbourg;67000
+11;Moreau;Emmanuel;4 Avenue des Orchidees;Nantes;44000
+12;Lefebvre;Matthieu;23 Boulevard des Champs;Montpellier;34000
+13;Rousseau;Chloe;8 Allee des Iris;Lille;59000
+14;Delacroix;Maxime;19 Rue des Violettes;Dijon;21000
+15;Favre;Amelie;25 Boulevard des Paquerettes;Le Havre;76000
+16;Gauthier;Thomas;12 Avenue des Lys;Toulon;83000
+17;Blanchard;Anne;20 Place des Rois;Reims;51000
+18;Guillou;David;7 Allee des Pensees;Angers;49000
+19;Perrin;Clemence;18 Boulevard des Mimosas;Brest;29000
+20;Joly;Samuel;29 Avenue des Marguerites;Nancy;54000
+21;Girard;Charlotte;15 Rue des Lilas;Saint-Etienne;42000
+22;Fabre;Victor;10 Place des Roses;Rouen;76000
+23;Lemaire;Justine;24 Boulevard des Tulipes;Mulhouse;68000
+24;Dufour;Julie;11 Avenue des Orchidees;Aix-en-Provence;13100
+25;Bernard;Pierre;16 Rue des Cerisiers;Metz;57000
+26;Caron;Lea;8 Boulevard des Champs;Limoges;87000
