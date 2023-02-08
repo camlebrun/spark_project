@@ -6,7 +6,7 @@ from pyspark.sql.types import IntegerType
 
 spark = SparkSession.builder.appName("projet").getOrCreate()
 
-produit = spark.read.option("header", "true").options(inferSchema='True',delimiter=';').csv("for_streamlit/BD_produits.csv")
+produit = spark.read.option("header", "true").options(inferSchema='True',delimiter=';').csv("Data/for_streamlit/BD_produits.csv")
 produit = produit.withColumn("Stock_actuel", produit["Stock_actuel"].cast(IntegerType()))
 
 # Convertir SparkDataFrame en pandas DataFrame pour l'affichage dans Streamlit
