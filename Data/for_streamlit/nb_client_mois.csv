@@ -1,0 +1,14 @@
+Adresse,month,count(ID_client)
+"18, rue de la Paix",12,3
+"2, place Vend�me",3,1
+"12, avenue des Champs-�lys�es",12,2
+"10, rue Scribe",5,1
+"2, place Vend�me",10,2
+"2, place Vend�me",12,2
+"18, rue de la Paix",7,1
+"2, place Vend�me",8,1
+"12, avenue des Champs-�lys�es",2,2
+"12, avenue des Champs-�lys�es",6,1
+"18, rue de la Paix",1,2
+"5, boulevard des Capucines",11,2
+"10, rue Scribe",12,5

@@ -97,3 +97,8 @@ nb_client_mensuel.write.option("header", "true").csv('/Users/camille/repo/Hetic/
 produit.filter(produit.Stock_actuel <= 5).show()
 produit.write.option("header", "true").csv('/Users/camille/repo/Hetic/BigData/spark_projet/Data/produit_stock_alerte.exp')
 
+
+#6. Par catégorie de produits
+categorie = df_finale.groupBy(["Categorie", month("Date").alias("month")] ).agg({"Montant": "sum"}).alias("categorie")
+categorie.write.option("header", "true").csv('/Users/camille/repo/Hetic/BigData/spark_projet/Data/categorie.exp')
+categorie.write.option("header", "true").csv('/Users/camille/repo/Hetic/BigData/spark_projet/Data/categorie.exp')
