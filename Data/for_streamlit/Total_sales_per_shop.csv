@@ -1,22 +1,22 @@
-Nom_produit,ID_magasin,Total_sales
-Shampooing sec,3,2
-Pain,4,2
-Biere,2,2
-Sauce tomate,2,2
-Savon,3,1
-Dentifrice,5,1
-Pain,2,1
-Shampooing,3,1
-Eau,1,1
-Eau,4,1
-Shampooing sec,4,1
-Shampooing,5,1
-Pain,1,1
-Huile,2,1
-Dentifrice,1,1
-Pain,3,1
-Jus de pomme,1,1
-Cafe,4,1
-Biere,1,1
-Ketchup,3,1
-Jus de pomme,4,1
+Nom_produit,Adresse,Total_sales
+Shampooing sec,"2, place Vend�me",2
+Biere,"18, rue de la Paix",2
+Sauce tomate,"18, rue de la Paix",2
+Pain,"10, rue Scribe",2
+Huile,"18, rue de la Paix",1
+Shampooing,"2, place Vend�me",1
+Shampooing sec,"10, rue Scribe",1
+Ketchup,"2, place Vend�me",1
+Cafe,"10, rue Scribe",1
+Eau,"10, rue Scribe",1
+Savon,"2, place Vend�me",1
+Pain,"2, place Vend�me",1
+Dentifrice,"5, boulevard des Capucines",1
+Dentifrice,"12, avenue des Champs-�lys�es",1
+Shampooing,"5, boulevard des Capucines",1
+Eau,"12, avenue des Champs-�lys�es",1
+Jus de pomme,"10, rue Scribe",1
+Jus de pomme,"12, avenue des Champs-�lys�es",1
+Pain,"18, rue de la Paix",1
+Pain,"12, avenue des Champs-�lys�es",1
+Biere,"12, avenue des Champs-�lys�es",1
