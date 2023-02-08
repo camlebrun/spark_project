@@ -1,0 +1,22 @@
+Nom_produit,ID_magasin,CA,Rank
+Eau,1,70,1
+Pain,1,56,2
+Biere,1,56,3
+Jus de pomme,1,50,4
+Dentifrice,1,33,5
+Sauce tomate,2,155,1
+Biere,2,100,2
+Pain,2,67,3
+Huile,2,67,4
+Shampooing sec,3,12102,1
+Pain,3,109,2
+Ketchup,3,30,3
+Savon,3,23,4
+Shampooing,3,23,5
+Pain,4,161,1
+Shampooing sec,4,90,2
+Eau,4,87,3
+Jus de pomme,4,20,4
+Cafe,4,10,5
+Dentifrice,5,45,1
+Shampooing,5,45,2

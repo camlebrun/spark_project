@@ -24,20 +24,21 @@ df_inter_2 = df_inter_1.join(store, df_inter_1.ID_magasin == store.ID, 'inner') 
 df_finale = df_inter_2.join(produit, df_inter_2.Product_id == produit.ID_produit, 'inner').select(df_inter_2.ID_client, df_inter_2.Prenom, df_inter_2.Nom, df_inter_2.Ville_client,
 df_inter_2.Code_postal_client, df_inter_2.Montant,df_inter_2.ID_tran, df_inter_2.ID_magasin, df_inter_2.Product_id, df_inter_2.Date, df_inter_2.Code_postal_store, produit.Nom_produit, produit.Categorie)
 df_finale = df_finale.alias('df_finale')
-df_finale.write.csv('/Users/camille/repo/Hetic/BigData/spark_projet/Data/df_finale.csv')
+df_finale.show()
+df_finale.write.option("header", "true").csv('/Users/camille/repo/Hetic/BigData/spark_projet/Data/df_finale.exp')
 
 # 1a. Les produits les plus vendus par magasins
 
 df_finale = df_finale.withColumn("Montant", df_finale["Montant"].cast(IntegerType()))
 df_grouped = df_finale.groupBy('Nom_produit', 'ID_magasin').agg(count('Nom_produit').alias('Total_sales'))
 Total_sales_per_shop = df_grouped.sort(desc('Total_sales'))
-Total_sales_per_shop.write.csv('/Users/camille/repo/Hetic/BigData/spark_projet/Data/Total_sales_per_shop.csv')
+Total_sales_per_shop.write.option("header", "true").csv('/Users/camille/repo/Hetic/BigData/spark_projet/Data/Total_sales_per_shop.exp')
 window = Window.partitionBy(df_grouped['ID_magasin']).orderBy(desc('Total_sales'))
 df_grouped = df_grouped.withColumn('Rank', row_number().over(window))
 
 df_top_10 = df_grouped.filter(df_grouped['Rank'] <= 10)
 df_top_10.show()
-df_top_10.write.csv('/Users/camille/repo/Hetic/BigData/spark_projet/Data/df_top_10.csv')
+df_top_10.write.option("header", "true").csv('/Users/camille/repo/Hetic/BigData/spark_projet/Data/df_top_10.exp')
 #1b Les produits les plus vendus par magasins CA 
 
 
@@ -50,7 +51,7 @@ df_grouped = df_grouped.withColumn('Rank', row_number().over(window))
 
 df_top_10_CA = df_grouped.filter(df_grouped['Rank'] <= 10)
 df_top_10_CA.show()
-df_top_10_CA.write.csv('/Users/camille/repo/Hetic/BigData/spark_projet/Data/df_top_10_CA.csv')
+df_top_10_CA.write.option("header", "true").csv('/Users/camille/repo/Hetic/BigData/spark_projet/Data/df_top_10_CA.exp')
 # 1abis top 10 tous les magasins
 
 df_grouped = df_finale.groupBy("Nom_produit").agg(count("Nom_produit").alias("TOP"))
@@ -59,8 +60,7 @@ df_grouped = df_grouped.sort(desc("TOP"))
 window = Window.orderBy(desc("TOP"))
 df_grouped = df_grouped.withColumn("Rank", row_number().over(window))
 df_top_3 = df_grouped.filter(df_grouped["Rank"] <= 3)
-df_top_3.show()
-df_top_3.write.csv('/Users/camille/repo/Hetic/BigData/spark_projet/Data/df_top_3.csv')
+df_top_3.write.option("header", "true").csv('/Users/camille/repo/Hetic/BigData/spark_projet/Data/df_top_3.exp')
 
 #1b_bis. Les produits les plus vendus par magasins CA
 df_grouped = df_finale.groupBy("Nom_produit").agg(sum("Montant").alias("CA"))
@@ -69,8 +69,7 @@ df_grouped = df_grouped.sort(desc("CA"))
 window = Window.orderBy(desc("CA"))
 df_grouped = df_grouped.withColumn("Rank", row_number().over(window))
 df_top_3_CA = df_grouped.filter(df_grouped["Rank"] <= 3)
-df_top_3_CA.show()
-df_top_3_CA.write.csv('/Users/camille/repo/Hetic/BigData/spark_projet/Data/df_top_3_CA.csv')
+df_top_3_CA.write.option("header", "true").csv('/Users/camille/repo/Hetic/BigData/spark_projet/Data/df_top_3_CA.exp')
 
 
 #2. les magasins avec le plus de clients 
@@ -81,24 +80,24 @@ df_client = df_client.sort(desc("Total_clients"))
 window = Window.orderBy(desc("Total_clients"))
 df_client = df_client.withColumn("Rank", row_number().over(window))
 df_client.show()
-df_top_3_CA.write.csv('/Users/camille/repo/Hetic/BigData/spark_projet/Data/df_top_3_CA.csv')
+df_client.write.option("header", "true").csv('/Users/camille/repo/Hetic/BigData/spark_projet/Data/df_client.exp')
 
 #3. Evolution des ventes par mois par magasin
 df_finale = df_finale.withColumn("Date", to_date(df_finale["Date"], "dd-MM-yyyy"))
 CA_month = df_finale.groupBy(["ID_magasin", month("Date").alias("month")] ).agg({"Montant": "sum"}).alias("courses_menselle")
-#CA_month = df_finale.groupBy(["Adresse", month("Date").alias("month")] ).agg({"Montant": "sum"}).alias("courses_menselle")
+CA_month = df_finale.groupBy(["Adresse", month("Date").alias("month")] ).agg({"Montant": "sum"}).alias("courses_menselle")
 
 
 #4 nombre de clients  par magasin
 nb_client_per_store = df_finale.groupBy("ID_magasin").count().alias("nb_client")
 #nb_client_per_store = df_finale.groupBy("Adresse").count().alias("nb_client")
 nb_client_per_store.show()
-nb_client_per_store.write.csv('/Users/camille/repo/Hetic/BigData/spark_projet/Data/nb_client_per_store.csv')
+nb_client_per_store.write.option("header", "true").csv('/Users/camille/repo/Hetic/BigDatxa/spark_projet/Data/nb_client_per_store.exp')
 
 #4b. nombre de clients  par magasin et mois 
 nb_client_mensuel = df_finale.groupBy(["ID_magasin", month("Date").alias("month")] ).agg({"ID_client": "count"}).alias("nb_client_mensuel")
-nb_client_mensuel.write.csv('/Users/camille/repo/Hetic/BigData/spark_projet/Data/nb_client_mensuel.csv')        
+nb_client_mensuel.write.option("header", "true").csv('/Users/camille/repo/Hetic/BigData/spark_projet/Data/nb_client_mensuel.exp')        
 #5 stock allerte
 produit.filter(produit.Stock_actuel <= 5).show()
-produit.write.csv('/Users/camille/repo/Hetic/BigData/spark_projet/Data/produit_stock_alerte.csv')
+produit.write.option("header", "true").csv('/Users/camille/repo/Hetic/BigData/spark_projet/Data/produit_stock_alerte.exp')
 

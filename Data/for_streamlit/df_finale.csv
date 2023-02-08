@@ -1,3 +1,4 @@
+ID_client,Prenom,Nom,Ville_client,Code_postal_client,Montant,ID_tran,ID_magasin,Product_id,Date,Code_postal_store,Nom_produit,Categorie
 1,Jean,Dupont,Paris,75116,100.0,10,2,14,10-12-2022,75002,Sauce tomate,Alimentation
 1,Jean,Dupont,Paris,75116,10.0,5,4,9,05-12-2022,75009,Cafe,Alimentation
 1,Jean,Dupont,Paris,75116,50.0,1,1,4,01-12-2022,75008,Jus de pomme,Alimentation
