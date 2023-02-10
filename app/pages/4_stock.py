@@ -6,7 +6,7 @@ from pyspark.sql.types import IntegerType
 
 spark = SparkSession.builder.appName("projet").getOrCreate()
 
-produit = spark.read.option("header", "true").options(inferSchema='True',delimiter=';').csv("/Users/camille/repo/Hetic/BigData/spark_projet/Data/BD_produits.csv")
+produit = spark.read.option("header", "true").options(inferSchema='True',delimiter=';').csv("app/Data/BD_produits.csv")
 
 produit = produit.withColumn("Stock_actuel", produit["Stock_actuel"].cast(IntegerType()))
 
@@ -30,7 +30,7 @@ from pyspark.sql.types import IntegerType
 
 spark = SparkSession.builder.appName("projet").getOrCreate()
 
-produit = spark.read.option("header", "true").options(inferSchema='True',delimiter=';').csv("/Users/camille/repo/Hetic/BigData/spark_projet/Data/BD_produits.csv")
+produit = spark.read.option("header", "true").options(inferSchema='True',delimiter=';').csv("app/Data/BD_produits.csv")
 
 produit = produit.withColumn("Stock_actuel", produit["Stock_actuel"].cast(IntegerType()))'''
 
