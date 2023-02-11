@@ -1,5 +1,5 @@
 import streamlit as st
-code_1 = """
+
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import month, countDistinct, desc, sum, row_number, count, to_date, avg, round 
 from pyspark.sql.window import Window
@@ -19,8 +19,7 @@ st.dataframe(produit_pdf)
 st.write("Stock inférieur à 10")
 produit = produit.filter(produit["Stock_actuel"] < 10)
 produit_pdf = produit.toPandas()
-st.dataframe(produit_pdf)"""
-st.code(code_1, language="python")
+st.dataframe(produit_pdf)
 
 
 code = '''
